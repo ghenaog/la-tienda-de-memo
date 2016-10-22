@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h1 class="text-center">The product has been created successfully</h1>
+      <p>Reference: <%= @product.reference %></p>
+      <p>Price: <%= @product.price %></p>
+      <p>Name: <%= @product.name %></p>
+      <p>Quantity: <%= @product.quantity %></p>
+      <p>Brand: <%= @product.brand %></p>
+      <p>Description: <%= @product.description %></p>
+      <p>Created At: <%= @product.created_at %></p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to "New product", new_product_path %> -
+      <%= link_to "All products", products_path %>
+    </div>
+  </div>
+</div>
