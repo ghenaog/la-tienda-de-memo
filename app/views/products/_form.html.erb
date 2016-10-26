@@ -14,32 +14,37 @@
           </div>
         <% end %>
 
-        <div class="field">
+        <div class="form-group">
           <%= product.label :name %>
           <%= product.text_field :name, class: 'form-control' %>
         </div>
 
-        <div class="field">
+        <div class="form-group">
           <%= product.label :reference %>
           <%= product.text_field :reference, class: 'form-control' %>
         </div>
 
-        <div class="field">
+        <div class="form-group">
+          <%= product.label :category_id %>
+          <%= product.collection_select(:category_id, Category.all, :id, :name, { prompt: 'Select Category' }, { class: 'form-control' }) %>
+        </div>
+
+        <div class="form-group">
           <%= product.label :price %>
           <%= product.text_field :price, class: 'form-control' %>
         </div>
 
-        <div class="field">
+        <div class="form-group">
           <%= product.label :quantity %>
           <%= product.text_field :quantity, class: 'form-control' %>
         </div>
 
-        <div class="field">
+        <div class="form-group">
           <%= product.label :brand %>
           <%= product.text_field :brand, class: 'form-control' %>
         </div>
 
-        <div class="field">
+        <div class="form-group">
           <%= product.label :description %>
           <%= product.text_area :description, class: 'form-control' %>
         </div>

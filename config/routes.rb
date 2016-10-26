@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  resources :caterogires
+  resources :categories
   resources :products
 end

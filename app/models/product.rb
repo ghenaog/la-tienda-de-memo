@@ -16,10 +16,10 @@
 
 class Product < ApplicationRecord
   #Associations
-  belong_to :category
+  belongs_to :category
 
   #Validations
-  validates :name, :reference, :price, :quantity, :brand, presence: true
+  validates :name, :reference, :price, :quantity, :brand, :category, presence: true
   validates :price, numericality: true
   validates :quantity, numericality: {only_integer: true}
   validates :price, :quantity, numericality: {greather_or_equal_to: 0}
