@@ -30,6 +30,13 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'annotate'
+
+#Install hirb gem
+gem 'hirb'
+
+#Install devise gem
+gem 'devise'
+
 #Install bootstrap responsive framework
 gem 'bootstrap-sass', '~> 3.3.6'
 
