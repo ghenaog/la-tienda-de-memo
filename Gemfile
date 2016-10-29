@@ -37,6 +37,9 @@ gem 'hirb'
 #Install devise gem
 gem 'devise'
 
+#Install paperclip gem
+gem "paperclip", "~> 5.0.0"
+
 #Install bootstrap responsive framework
 gem 'bootstrap-sass', '~> 3.3.6'
 

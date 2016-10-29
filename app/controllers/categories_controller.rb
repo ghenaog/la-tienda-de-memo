@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_category, only: [ :edit, :update, :show, :destroy ]
+  before_action :its_admin?
 
   def new
     @category = Category.new
@@ -21,11 +22,11 @@ class CategoriesController < ApplicationController
 
   def update
       if @category.update(category_params)
-      flash[:notice] = 'Category was succesfully updated'
-      redirect_to category_path(id: @category.id, it_was: 'updated')
-    else
-      render :edit
-    end
+        flash[:notice] = 'Category was succesfully updated'
+        redirect_to category_path(id: @category.id, it_was: 'updated')
+      else
+        render :edit
+      end
   end
 
   def show
@@ -52,4 +53,9 @@ class CategoriesController < ApplicationController
       @category = Category.find(params[:id])
     end
 
+    def its_admin?
+      unless current_user.admin?
+        redirect_to root_path, :alert => "Acceso denegado, no posee permisos como administrador"
+      end
+    end
 end

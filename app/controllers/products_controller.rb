@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_product, only: [ :edit, :update, :show, :destroy ]
+  before_action :its_admin?
 
   def new
     @product = Product.new
@@ -20,7 +21,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-      if @product.update(product_params)
+    if @product.update(product_params)
       flash[:notice] = 'Product was succesfully updated'
       redirect_to product_path(id: @product.id, it_was: 'updated')
     else
@@ -45,10 +46,17 @@ class ProductsController < ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(:name, :reference, :price, :quantity, :brand, :description, :category_id)
+      params.require(:product).permit(:name, :reference, :price, :quantity, :brand, :description, :category_id, :image)
     end
 
     def find_product
       @product = Product.find(params[:id])
     end
+
+    def its_admin?
+      unless current_user.admin?
+        redirect_to root_path, :alert => "Acceso denegado, no posee permisos como administrador"
+      end
+    end
+
 end
