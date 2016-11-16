@@ -24,8 +24,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  #Call
   after_initialize :set_default_role
 
+  #Associaitions
+  has_many :purchases, dependent: :destroy
   enum role: [ :admin, :client ]
 
   private
