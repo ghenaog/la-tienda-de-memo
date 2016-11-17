@@ -37,6 +37,7 @@ gem 'devise'
 
 #Install paperclip gem
 gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk', '~> 2'
 
 #Install bootstrap responsive framework
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -49,7 +50,7 @@ group :development, :test do
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in  the code.
   gem 'web-console'
 end
 
