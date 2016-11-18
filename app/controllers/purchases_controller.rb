@@ -12,6 +12,9 @@ class PurchasesController < ApplicationController
     purchase.price = product.price
 
     if product.available? && purchase.save
+      balance = Purchase.balance(current_user)
+      PurchaseNotifierMailer.notify_account_balance(current_user, balance) if balance > 10_000
+
       product.update_stock
       flash[:notice] = 'Tu compra ha sido realizada con éxito'
     else
@@ -47,5 +50,5 @@ class PurchasesController < ApplicationController
       unless current_user.admin?
         redirect_to root_path, alert: "Acceso denegado, no posee permisos como administrador"
       end
-    end      
+    end
 end
