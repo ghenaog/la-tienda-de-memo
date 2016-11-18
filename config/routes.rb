@@ -9,5 +9,4 @@ Rails.application.routes.draw do
 
   get 'profile' => 'pages#profile'
   get 'dashboard' => 'purchases#dashboard'
-  
 end

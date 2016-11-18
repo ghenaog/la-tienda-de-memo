@@ -7,5 +7,6 @@ class PurchaseNotifierMailer < ApplicationMailer
     @balance = balance
 
     mail(to: user.email, subject: 'Es hora de conversar con Memo..!')
-
+  end
+    
 end

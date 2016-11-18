@@ -25,3 +25,7 @@ p.description {
   height: 90px;
   overflow: auto;
 }
+
+.label-success.balance-status>a, .label-danger.balance_status>a {
+  color: white !important;
+}
