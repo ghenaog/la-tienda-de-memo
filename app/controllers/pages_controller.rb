@@ -6,11 +6,11 @@ class PagesController < ApplicationController
     if params[:category_id].present?
       @products = Category.find(params[:category_id]).products
     else
-      @products = Product.all.shuffle[0..5]
+      @products = @q.result(distinct: true)
     end
   end
 
-  def profile
+    def profile
     @user = User.find(params[:id])
     purchases = @user.purchases
     @paid_purchases = purchases.where(status: :paid)
